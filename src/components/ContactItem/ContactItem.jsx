@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/contacts/contacts-operations';
 
 import {
   StyledItemContacts,
@@ -6,13 +8,21 @@ import {
   StyledButtonContacts,
 } from './ContactItem.styled';
 
-const ContactItem = ({ contact: { id, name, number }, deleteContact }) => {
+const ContactItem = ({ contact: { id, name, phone } }) => {
+  const dispatch = useDispatch();
+
+  // const handleDeleteContact = id => {
+  //   dispatch(deleteContact(id));
+  // };
   return (
     <StyledItemContacts>
       <StyledTextContacts>
-        {name}: {number}
+        {name}: {phone}
       </StyledTextContacts>
-      <StyledButtonContacts onClick={() => deleteContact(id)} type="button">
+      <StyledButtonContacts
+        onClick={() => dispatch(deleteContact(id))}
+        type="button"
+      >
         Delete
       </StyledButtonContacts>
     </StyledItemContacts>
@@ -23,9 +33,8 @@ ContactItem.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
   }).isRequired,
-  deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactItem;
