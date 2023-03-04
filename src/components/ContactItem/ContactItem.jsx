@@ -11,9 +11,6 @@ import {
 const ContactItem = ({ contact: { id, name, phone } }) => {
   const dispatch = useDispatch();
 
-  // const handleDeleteContact = id => {
-  //   dispatch(deleteContact(id));
-  // };
   return (
     <StyledItemContacts>
       <StyledTextContacts>
