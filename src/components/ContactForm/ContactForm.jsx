@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import { fetchContacts } from 'redux/contacts/contacts-operations';
 
-// import { getAllContacts } from 'redux/contacts/contacts-selectors';
-// import { addContact } from 'redux/contacts/contacts-slice';
 import { fetchContacts, addContact } from 'redux/contacts/contacts-operations';
 
 import {
@@ -31,8 +28,6 @@ const ContactForm = () => {
         break;
     }
   };
-
-  // const allContacts = useSelector(getAllContacts);
 
   const dispatch = useDispatch();
 
